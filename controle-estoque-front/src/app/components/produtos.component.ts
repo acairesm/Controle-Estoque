@@ -29,42 +29,7 @@ import { ProdutoFormComponent } from './produto-form.component';
       </ul>
     </div>
   `,
-  styles: [`
-    .container {
-      max-width: 600px;
-      margin: auto;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-    }
-    button {
-      margin-left: 5px;
-      
-    }
-    .btn-editar{
-       padding: 8px 16px;
-      background-color: #1460ec;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      }
-      .btn-excluir{
-        padding: 8px 16px;
-      background-color: #db0f00;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      }
-  `]
+  styleUrl: './produtos.component.css'
 })
 export class ProdutosComponent implements OnInit {
   private service = inject(ProdutosService);

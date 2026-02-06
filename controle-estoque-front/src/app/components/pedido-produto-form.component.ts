@@ -38,42 +38,7 @@ export interface PedidoProdutoFormValue {
       <button type="submit" [disabled]="form.invalid">Vincular produto</button>
     </form>
   `,
-  styles: [`
-    .form {
-      display: grid;
-      grid-template-columns: 1fr 1fr auto;
-      gap: 12px;
-      align-items: end;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-weight: 600;
-    }
-
-    select {
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #d8d8d8;
-    }
-
-    button {
-      padding: 8px 16px;
-      background-color: #7b2ff7;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  `]
+  styleUrl: './pedido-produto-form.component.css'
 })
 export class PedidoProdutoFormComponent implements OnChanges {
   @Input() pedidos: Pedido[] = [];

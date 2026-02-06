@@ -15,26 +15,7 @@ import { Produto } from '../services/produtos.service';
       </button>
     </form>
   `,
-  styles: [`
-    .form {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    input {
-      flex: 1;
-      padding: 8px;
-    }
-    button {
-      padding: 8px 16px;
-      background-color: #0eb85a;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-
-    }
-  `]
+  styleUrl: './produto-form.component.css'
 })
 export class ProdutoFormComponent implements OnChanges {
   @Input() produto?: Produto;
