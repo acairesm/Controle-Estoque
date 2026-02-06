@@ -1,12 +1,13 @@
+using System;
 using System.Collections.Generic;
 
 namespace ControleEstoque.API.Models;
 
-public class Produto
+public class Pedido
 {
     public int Id { get; set; }
 
-    public string Nome { get; set; } = null!;
+    public DateTime Data { get; set; }
 
     public ICollection<PedidoProduto> PedidoProdutos { get; set; }
         = new List<PedidoProduto>();
