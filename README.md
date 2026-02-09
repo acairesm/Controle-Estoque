@@ -3,20 +3,20 @@
 Sistema simples de controle de estoque com **API em .NET 8** e **frontend em Angular**.
 
 ## Comando rapido
-Para iniciar tudo de uma vez:
+Para iniciar tudo de uma vez (ajuste o caminho conforme onde o projeto estiver salvo):
 ```bash
-cd D:\Sites\Controle-Estoque\controle-estoque-front
+cd Controle-Estoque\controle-estoque-front
 npm run start:full
 ```
 
 ## Requisitos
-- .NET SDK 8
-- Node.js + npm
+- .NET SDK 8 (execute `dotnet --version` e verifique se retorna 8.x)
+- Node.js + npm (versão ≥ 20.19 ou algum release da linha 22.x/22 LTS)
 - PostgreSQL (local ou Supabase)
 
 ## Estrutura
 ```
-D:\Sites\Controle-Estoque
+\Sites\Controle-Estoque
 ├─ backend\ControleEstoque.API
 └─ controle-estoque-front
 ```
@@ -24,15 +24,20 @@ D:\Sites\Controle-Estoque
 ## Rodando a API (Backend)
 1. Abra um terminal na pasta da API:
    ```bash
-   cd \backend\ControleEstoque.API
+   cd Controle-Estoque\backend\ControleEstoque.API
    ```
 
-2. Inicie a API:
+2. Restaure as dependencias (necessario principalmente na primeira vez ou apos atualizar o SDK):
+   ```bash
+   dotnet restore
+   ```
+
+3. Inicie a API:
    ```bash
    dotnet run
    ```
 
-3. Acesse no navegador:
+4. Acesse no navegador:
    ```text
    http://localhost:5003/swagger
    ```
@@ -44,7 +49,7 @@ D:\Sites\Controle-Estoque
 ## Rodando o Frontend (Angular)
 1. Abra outro terminal na pasta do front:
    ```bash
-   cd D:\Sites\Controle-Estoque\controle-estoque-front
+   cd \Controle-Estoque\controle-estoque-front
    ```
 
 2. Instale as dependencias (apenas na primeira vez):
@@ -63,9 +68,9 @@ D:\Sites\Controle-Estoque
    ```
 
 ## Rodando Front + API juntos
-Na pasta do front:
+Na pasta do front (garanta que `npm install` ja foi executado e que nao ha outra instancia usando as portas 4200/5003):
 ```bash
-cd D:\Sites\Controle-Estoque\controle-estoque-front
+cd Controle-Estoque\controle-estoque-front
 npm run start:full
 ```
 
@@ -76,10 +81,6 @@ A API usa PostgreSQL via EF Core. A string de conexao fica em:
 ```
 backend\ControleEstoque.API\Program.cs
 ```
-
-### Importante
-Este projeto ja esta configurado para usar o banco do Supabase do autor. 
-Ao rodar a API, os dados salvos serao os mesmos do banco online compartilhado.
 
 ### Usando Supabase
 1. No Supabase, va em **Project Settings > Database > Connection string**.
@@ -124,6 +125,8 @@ create table if not exists "PedidoProdutos" (
 - **CORS**: verifique se a API esta rodando e se o front aponta para `http://localhost:5003`.
 - **Requisicoes pendentes**: normalmente a API nao esta rodando ou a porta esta errada.
 - **Sem tabelas no Supabase**: rode as migrations ou use o SQL acima.
+- **Angular reclama do Node**: atualize para >= 20.19 (ou use 22.x) e reinstale as dependencias do front (`npm install`).
+- **Porta em uso**: finalize a instancia anterior com `Ctrl+C` no terminal ou encerre os processos `node`/`dotnet` antes de rodar novamente.
 
 ## Licenca
 Projeto de estudo.
