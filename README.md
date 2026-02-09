@@ -24,7 +24,7 @@ D:\Sites\Controle-Estoque
 ## Rodando a API (Backend)
 1. Abra um terminal na pasta da API:
    ```bash
-   cd D:\Sites\Controle-Estoque\backend\ControleEstoque.API
+   cd \backend\ControleEstoque.API
    ```
 
 2. Inicie a API:
