@@ -3,6 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Force default URL in development if none is provided
+if (builder.Environment.IsDevelopment() &&
+    string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("ASPNETCORE_URLS")))
+{
+    builder.WebHost.UseUrls("http://localhost:5003");
+}
+
 // Controllers
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -33,7 +40,7 @@ builder.Services.AddCors(options =>
 // Banco de dados (PostgreSQL)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
-        "Host=localhost;Port=5432;Database=controle_estoque;Username=postgres;Password=123456"
+        "Host=aws-1-us-east-2.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.zeybhstlqdbieyhnoarb;Password=senhamuitoForte;Ssl Mode=Require;Trust Server Certificate=true;Timeout=15;Command Timeout=15;Keepalive=30;Pooling=true;Minimum Pool Size=0;Maximum Pool Size=10;No Reset On Close=true;Max Auto Prepare=0"
     )
 );
 

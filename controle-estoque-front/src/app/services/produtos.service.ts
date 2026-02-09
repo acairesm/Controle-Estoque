@@ -23,19 +23,21 @@ export class ProdutosService {
 
   adicionar(nome: string) {
     return this.http.post<Produto>(this.api, { nome }).pipe(
-      tap(() => this.listar().subscribe())
+      tap(novo => this.produtos.update(lista => [...lista, novo]))
     );
   }
 
   atualizar(produto: Produto) {
     return this.http.put(`${this.api}/${produto.id}`, produto).pipe(
-      tap(() => this.listar().subscribe())
+      tap(() => this.produtos.update(lista =>
+        lista.map(item => item.id === produto.id ? { ...item, ...produto } : item)
+      ))
     );
   }
 
   excluir(id: number) {
     return this.http.delete(`${this.api}/${id}`).pipe(
-      tap(() => this.listar().subscribe())
+      tap(() => this.produtos.update(lista => lista.filter(item => item.id !== id)))
     );
   }
 }
