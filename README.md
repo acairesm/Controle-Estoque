@@ -77,6 +77,10 @@ A API usa PostgreSQL via EF Core. A string de conexao fica em:
 backend\ControleEstoque.API\Program.cs
 ```
 
+### Importante
+Este projeto ja esta configurado para usar o banco do Supabase do autor. 
+Ao rodar a API, os dados salvos serao os mesmos do banco online compartilhado.
+
 ### Usando Supabase
 1. No Supabase, va em **Project Settings > Database > Connection string**.
 2. Copie a **Direct connection**.
